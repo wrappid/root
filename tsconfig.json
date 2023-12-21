@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "CommonJS",
+    "declaration": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "target": "ES2021",
+    "sourceMap": false,
+    "outDir": "./dist",
+    "lib": ["dom", "esnext"],
+    "importHelpers": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true
+  },
+  "include": ["package/**/*.ts", "package/**/*.tsx", "package/**/*.json"],
+  "exclude": ["node_modules", "test", "dist", ".github", ".git", "temp"],
+}

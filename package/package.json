@@ -1,0 +1,23 @@
+{
+  "name": "@wrappid/root",
+  "version": "0.0.1",
+  "description": "This is the frontend core functionality support inside this typscript package.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wrappid/root.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "typescript",
+    "wrappid"
+  ],
+  "author": "wrappid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wrappid/root/issues"
+  },
+  "homepage": "https://github.com/wrappid/root#readme",
+  "peerDependencies": {}
+}
