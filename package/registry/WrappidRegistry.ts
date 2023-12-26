@@ -79,24 +79,26 @@ export class WrappidRegistry<T> {
    * @param registryEntityName
    * @returns T | undefined
    */
-  getElement(registryEntityName: string): T {
+  getRegistryEntity(registryEntityName: string): T {
     try {
       let registryElement = this._registry.get(registryEntityName);
       if (registryElement?.registryEntity) {
         return registryElement.registryEntity;
       } else {
-        throw new Error(`No registryEntity found with ${registryEntityName}`);
+        throw new Error(
+          `No registry entity found with ${registryEntityName} key`
+        );
       }
     } catch (error) {
       throw error;
     }
   }
 
-  getElements(): Map<string, RegistryElementType<T>> {
-    try {
-      return this._registry;
-    } catch (error) {
-      throw error;
-    }
+  /**
+   *
+   * @returns Map<string, RegistryElementType<T>>
+   */
+  getRegistry(): Map<string, RegistryElementType<T>> {
+    return this._registry;
   }
 }

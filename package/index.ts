@@ -1,7 +1,7 @@
 /**
  * Importing Package
  */
-import { Wrappid } from "./registry/Wrappid";
+import { Wrappid } from "./Wrappid";
 
 /**
  * Exporting Package Elements

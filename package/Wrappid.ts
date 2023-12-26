@@ -1,4 +1,4 @@
-import { WrappidRegistry } from "./WrappidRegistry";
+import { WrappidRegistry } from "./registry/WrappidRegistry";
 
 export class Wrappid {
   private static registries: Map<any, WrappidRegistry<any>> = new Map<
