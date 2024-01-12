@@ -1,4 +1,7 @@
-import { WrappidRegistry } from "./registry/WrappidRegistry";
+import {
+  WrappidRegistry,
+  WrappidRegistryOptionsType,
+} from "./registry/WrappidRegistry";
 
 export class Wrappid {
   private static registries: Map<any, WrappidRegistry<any>> = new Map<
@@ -6,7 +9,10 @@ export class Wrappid {
     WrappidRegistry<any>
   >();
 
-  static createRegistry(type: any): WrappidRegistry<typeof type> {
+  static createRegistry(
+    type: any,
+    options?: WrappidRegistryOptionsType
+  ): WrappidRegistry<typeof type> {
     let childRegistry = WrappidRegistry<typeof type>;
     let registryInstance = null;
 
