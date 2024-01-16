@@ -2,6 +2,12 @@ import { RegistryUtils } from "../utils/RegistryUtils";
 import fs from "fs";
 import path from "path";
 
+export type WrappidRegistryType<T> = {
+  type: any;
+  options: WrappidRegistryOptionsType | undefined;
+  _registry: Map<string, RegistryElementType<T>>;
+};
+
 export type WrappidRegistryOptionsType = {
   localtions: string[];
   decorators: string[];
@@ -28,8 +34,17 @@ export class WrappidRegistry<T> {
 
   initialize() {
     /** @todo loop through files */
-    if (this.options && this.options?.localtions) {
-      if (this.options && this.options?.decorators) {
+    if (
+      this.options &&
+      this.options?.localtions &&
+      this.options?.localtions?.length > 0
+    ) {
+      if (
+        this.options &&
+        this.options?.decorators &&
+        this.options?.decorators?.length > 0
+      ) {
+        WrappidRegistry.initializeClassesInFolder(this.options.localtions);
       } else {
         throw new Error(
           "Internal Error: decorators is missing in registry options"
@@ -46,21 +61,16 @@ export class WrappidRegistry<T> {
    *
    * @param folders
    */
-  static initializeClassesInFolder(folders: string[]) {
-    folders.forEach((folder) => {
+  private static initializeClassesInFolder(locations: string[]) {
+    locations.forEach((folder) => {
       let files = fs.readdirSync(folder, { withFileTypes: true });
 
       files.forEach((file) => {
         const filePath = path.join(folder, file.name);
-        // console.log("Processing:" + filePath);
-
         if (file.isDirectory()) {
-          // Recursively initialize files from subdirectories
           WrappidRegistry.initializeClassesInFolder([filePath]);
-          // .ts for Development, .js for compiled output
         } else if (filePath.endsWith(".ts") || filePath.endsWith(".js")) {
-          // Initialize file
-          // import registryInstance from
+          require(filePath);
         }
       });
     });

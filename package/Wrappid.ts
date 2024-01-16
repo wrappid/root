@@ -10,17 +10,17 @@ export class Wrappid {
   >();
 
   static createRegistry(
-    type: any,
+    registryType: any,
     options?: WrappidRegistryOptionsType
-  ): WrappidRegistry<typeof type> {
-    let childRegistry = WrappidRegistry<typeof type>;
+  ): WrappidRegistry<typeof registryType> {
+    let childRegistry = WrappidRegistry<typeof registryType>;
     let registryInstance = null;
 
-    if (Wrappid.registries.has(type)) {
-      registryInstance = Wrappid.registries.get(type);
+    if (Wrappid.registries.has(registryType)) {
+      registryInstance = Wrappid.registries.get(registryType);
     } else {
-      registryInstance = new childRegistry(type);
-      Wrappid.registries.set(type, registryInstance);
+      registryInstance = new childRegistry(registryType, options);
+      Wrappid.registries.set(registryType, registryInstance);
     }
     if (registryInstance) {
       return registryInstance;
