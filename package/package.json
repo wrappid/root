@@ -13,11 +13,15 @@
     "typescript",
     "wrappid"
   ],
-  "author": "wrappid",
-  "license": "ISC",
+  "license": "MIT",
+  "author": {
+		"name": "Wrappid",
+		"email": "wrappid.framework@gmail.com",
+		"url": "https://www.github.com/wrappid"
+	},
+  "homepage": "https://github.com/wrappid/root",
   "bugs": {
     "url": "https://github.com/wrappid/root/issues"
   },
-  "homepage": "https://github.com/wrappid/root#readme",
   "peerDependencies": {}
 }
