@@ -19,7 +19,7 @@ export class Wrappid {
     if (Wrappid.registries.has(type)) {
       registryInstance = Wrappid.registries.get(type);
     } else {
-      registryInstance = new childRegistry(type);
+      registryInstance = new childRegistry(type, options);
       Wrappid.registries.set(type, registryInstance);
     }
     if (registryInstance) {
